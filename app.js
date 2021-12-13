@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Start the game by creating the board and getting the score.
-    // createBoard();
-    createTestBoard();
+    createBoard();
+    // createTestBoard();
     getScore();
 
     //Function to create the board for the game.
