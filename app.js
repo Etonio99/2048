@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     const scoreContainer = document.querySelector('.scoreContainer');
-    const width = 4;
+    const width = 16;
     let blocks = [];
 
     //Setup the grid size.
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             blocks[i].style.lineHeight = blockSize * 0.98 + 'px';
             blocks[i].style.fontSize = blockSize * 0.36 + 'px'
             blocks[i].style.margin = margin + 'px'
+            blocks[i].style.borderRadius = blockSize * 0.067 + 'px';
         }
         createNewBlock();
         createNewBlock();
@@ -60,21 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(block);
             blocks.push(block);
         }
-        // createSpecificBlock(8, 2, 2);
-        // createSpecificBlock(8, 2, 3);
-        // createSpecificBlock(16, 2, 1);
-
-        // createSpecificBlock(8, 1, 0);
-        // createSpecificBlock(8, 1, 1);
-        // createSpecificBlock(16, 1, 2);
-
-        createSpecificBlock(8, 0, 0);
-        createSpecificBlock(8, 1, 0);
-        createSpecificBlock(16, 2, 0);
-
-        createSpecificBlock(8, 3, 3);
-        createSpecificBlock(8, 2, 3);
-        createSpecificBlock(16, 1, 3);
+        createSpecificBlock(2, 0, 2);
+        createSpecificBlock(4, 1, 2);
+        createSpecificBlock(8, 2, 2);
+        createSpecificBlock(32, 3, 2);
+        createSpecificBlock(32, 0, 3);
     }
 
     //Function that places specific blocks within a test board.
