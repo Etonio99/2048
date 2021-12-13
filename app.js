@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     const scoreContainer = document.querySelector('.scoreContainer');
-    const width = 16;
+    const width = 4;
     let blocks = [];
 
     //Setup the grid size.
