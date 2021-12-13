@@ -1,0 +1,75 @@
+:root {
+    --white: #fdfdfd;
+    --white_mid_low: #dddddd;
+    --white_low: #cfcfcf;
+    --light_gray: #b7b7b7;
+    --gray: #777777;
+    --dark_gray: #484848;
+    --black_high: #303030;
+    --black_mid_high: #222222;
+    --black_low_high: #121212;
+    --black: #020202;
+
+    --shadow: 0px 2px 10px rgb(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--black_high);
+    color: var(--white);
+    font-family: "Readex Pro", sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+.title {
+    color: var(--white);
+    font-size: 100px;
+    margin-top: 20px;
+}
+
+.subTitle {
+    color: var(--gray);
+    font-size: 16px;
+    margin-bottom: 16px;
+    position: relative;
+    bottom: 10px;
+}
+
+.container {
+    margin: auto + 50px;
+}
+
+.scoreContainer {
+    background-color: var(--black_low_high);
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 24px;
+    width: 190px;
+    margin-inline: auto;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.grid {
+    /* background-color: var(--black_low_high); */
+    width: 400px;
+    height: 400px;
+    /* padding: 5px; */
+    margin-inline: auto;
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr); */
+}
+
+.grid div {
+    background-color: var(--black_low_high);
+    border-radius: 6px;
+    color: var(--white);
+    margin: 5px;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    line-height: 88px;
+    font-size: 32px;
+    font-weight: bold;
+}
