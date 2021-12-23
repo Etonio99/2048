@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     const scoreContainer = document.querySelector('.scoreContainer');
-    const width = 4;
+    let width = 4;
     let blocks = [];
 
     //Setup the grid size.
-    grid.style.gridTemplateColumns = 'repeat(' + width + ', 1fr)';
-    grid.style.gridTemplateRows = 'repeat(' + width + ', 1fr)';
+    setupGridSize();
+    function setupGridSize() {
+        grid.style.gridTemplateColumns = 'repeat(' + width + ', 1fr)';
+        grid.style.gridTemplateRows = 'repeat(' + width + ', 1fr)';
+    }
 
     //Find the sizes for elements within the grid.
     let margin = 400 * 0.05 / width;
@@ -71,6 +74,42 @@ document.addEventListener('DOMContentLoaded', () => {
     //Function that places specific blocks within a test board.
     function createSpecificBlock(number, x, y) {
         blocks[x + y * width].innerHTML = number;
+    }
+
+    //Function that resets the board with new starting blocks.
+    function resetBoard() {
+        for (let i = 0; i < blocks.length; i++) {
+            blocks[i].innerHTML = '';
+        }
+
+        createNewBlock();
+        createNewBlock();
+        getScore();
+        setBlockColors();
+    }
+
+    //Function that will change the board size. Min: 2x2 Max: 16x16
+    function changeBoardSize(increment) {
+        width = width + increment;
+        if (width < 2) {
+            width = 2;
+            return;
+        }
+        if (width > 16) {
+            width = 16;
+            return;
+        }
+
+        for (let i = 0; i < blocks.length; i++) {
+            blocks[i].remove();
+        }
+        blocks = [];
+        margin = 400 * 0.05 / width;
+        blockSize = getBlockSizes();
+
+        setupGridSize();
+        createBoard();
+        setBlockColors();
     }
 
     //Function that checks if the player has lost.
@@ -146,13 +185,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 //Down
                 arrowKeyPress(4);
                 break;
+            case 'KeyR':
+                resetBoard();
+                break;
+            case 'BracketRight':
+                changeBoardSize(1);
+                break;
+            case 'BracketLeft':
+                changeBoardSize(-1);
+                break;
             case 'Space':
                 if (autoRotating) {
                     clearInterval(autoRotateTimer);
                     autoRotating = false;
                 }
                 else {
-                    autoRotateTimer = setInterval(autoRotate, 1);
+                    autoRotateTimer = setInterval(autoRotate, 0.01);
                     autoRotating = true;
                 }
                 break;
